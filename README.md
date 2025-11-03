@@ -28,7 +28,8 @@ ROMEO is a personal training tracker built as a portfolio project to demonstrate
   - Most recent run automatically on display
   - Weekly stats: accumulative mileage, number of runs, avg pace, longest run distance  
   - Editable and removable runs - options to clear from local storage and database storage  
-- Interactive route map (Leaflet + React Leaflet)  
+- Interactive route map (Leaflet + React Leaflet)
+- Ability to filter past runs to show oldest first, newest first, fastest pace, etc. 
 - Chart past mileage, accumulated weekly (under development)
 
 ***Dev Features***
