@@ -1,0 +1,69 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Roboto+Mono:wght@400;600&display=swap");
+
+/* 🌫️ Calm Performance Theme */
+:root {
+  --bg: #222831;
+  /* Slate gray / dark base */
+  --surface: #393e46;
+  /* Elevated UI surfaces */
+
+  --accent: #00adb5;
+  /* Teal (main highlight) */
+  --accent-secondary: #ff5722;
+  /* Warm coral (alerts, PR highlights) */
+
+  --text-main: #eeeeee;
+  /* Soft white */
+  --text-muted: #b5b9bd;
+
+  --border: #4a4f55;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text-main);
+  font-family: "Inter", sans-serif;
+  margin: 0;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+}
+
+.metric {
+  font-family: "Roboto Mono", monospace;
+  letter-spacing: 0.5px;
+}
+
+.btn {
+  background: var(--accent);
+  border: none;
+  color: #fff;
+  padding: 0.7rem 1rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.btn:hover {
+    background: var(--accent-secondary);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: var(--text-main);
+}
+
+a:hover {
+  opacity: 0.8;
+}

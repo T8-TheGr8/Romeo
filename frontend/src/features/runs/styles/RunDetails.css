@@ -1,0 +1,27 @@
+.run-details-page {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.run-details-info p {
+  margin: 0.4rem 0;
+}
+
+.run-map,
+.run-splits {
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--text-muted);
+  border: 2px dashed var(--accent);
+  font-style: italic;
+}
+
+.run-map {
+  padding: 0;
+  overflow: hidden;
+  border-radius: 12px;
+}
+

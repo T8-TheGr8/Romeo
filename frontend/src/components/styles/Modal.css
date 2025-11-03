@@ -1,0 +1,117 @@
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  backdrop-filter: blur(3px);
+}
+
+.modal-card {
+  background: var(--surface); 
+  color: var(--text-main);
+  padding: 2rem;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 1000px;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+  line-height: 1.6;
+  border: 1px solid var(--border);
+  animation: modal-fade-in 0.25s ease-out;
+  font-family: "Inter", sans-serif;
+}
+
+.modal-card h1,
+.modal-card h2,
+.modal-card h3 {
+  color: var(--accent); 
+  margin: 1rem 0 0.5rem;
+  font-weight: 700;
+}
+
+.modal-card p,
+.modal-card li {
+  color: var(--text-main);
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.modal-card a {
+  color: var(--accent);
+  font-weight: 600;
+}
+.modal-card a:hover {
+  opacity: 0.8;
+}
+
+.modal-card code {
+  background: #2e3238;
+  color: var(--accent);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: "Roboto Mono", monospace;
+  font-size: 0.9rem;
+}
+
+.modal-card pre {
+  background: #2e3238;
+  padding: 1rem;
+  border-radius: 8px;
+  overflow-x: auto;
+  border: 1px solid var(--border);
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1rem;
+}
+
+.modal-actions button {
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 8px;
+  background: var(--accent); 
+  color: var(--bg);
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.modal-actions button:hover {
+  background: #01979f;
+}
+
+@keyframes modal-fade-in {
+  from {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.modal-card strong {
+  color: var(--accent-secondary); 
+  font-weight: 700;
+}
+
+.modal-card ul {
+  list-style-type: disc;
+  padding-left: 1.2rem; 
+  margin-bottom: 1rem;
+}
+
+.modal-card ul ul {
+  list-style-type: circle; 
+  padding-left: 1.5rem;
+  margin-top: 0.4rem;
+}
+
+

@@ -1,0 +1,45 @@
+.achievements-panel {
+    padding: 1.25rem;
+    margin-top: 1.5rem;
+  }
+  
+  .panel-title {
+    margin-bottom: 0.75rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
+  
+  .achievement-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .achievement-item {
+    display: flex;
+    justify-content: space-between;
+    background: var(--surface);
+    padding: 0.5rem 0.75rem;
+    border-radius: 8px;
+    transition: background 0.2s ease, transform 0.2s ease;
+    cursor: pointer;
+  }
+  
+  .achievement-item:hover {
+    background: var(--border);
+    transform: translateX(4px);
+  }
+  
+  .achievement-name {
+    font-weight: 600;
+    color: var(--accent-secondary);
+  }
+  
+  .achievement-date {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+  }
+  

@@ -1,0 +1,21 @@
+.settings-page {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 1rem;
+}
+
+.settings-card {
+  padding: 1.5rem;
+  border-radius: 12px;
+  background: var(--card-bg, #1f1f1f);
+  color: var(--text-color, #fff);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.settings-card h3 {
+  margin-bottom: 0.5rem;
+}
+
+.btn {
+  margin-top: 1rem;
+}

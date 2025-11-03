@@ -1,0 +1,20 @@
+.weekly-summary {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    margin-top: 0.75rem;
+  }
+  
+  .weekly-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .metric-value.small {
+    font-size: 1.3rem;
+    color: var(--accent-secondary);
+    font-family: "Roboto Mono", monospace;
+    font-weight: 600;
+  }
+  
