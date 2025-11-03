@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useRunContext } from "@/context/RunContext";
-import { parseGpx } from "@/utils/parseGPX";
+import { parseGpx } from "@/utils/parseGpx";
 import { formatPace } from "@/utils/formatPace";
 import { useWeeklyStats } from "@/hooks/useWeeklyStats";
 import RunCard from "@/features/runs/components/RunCard";
