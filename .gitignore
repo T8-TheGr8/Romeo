@@ -1,28 +1,30 @@
-# Node dependencies
 node_modules/
 
-# Build files
 dist/
 build/
 
-# Local environment variables (DO NOT COMMIT!)
 .env
 .env.local
 .env.*.local
 
-# Logs
 npm-debug.log*
 yarn-debug.log*
-yarn-error.log*
 pnpm-debug.log*
+logs/
+*.log
 
-# VS Code settings (optional)
-.vscode/
+tmp/
+temp/
+*.tmp
 
-# System files
 .DS_Store
 Thumbs.db
 
-# Coverage and testing
+.vscode/
+
 coverage/
 
+*.gpx
+
+/backups/
+/export/
