@@ -8,9 +8,16 @@ import "../styles/Modal.css";
 export default function ReadMeModal({ show, onClose }) {
   if (!show) return null;
 
+  // Closes when clicking backdrop (outside the modal card)
+  const handleBackdropClick = (e) => {
+    if (e.target.classList.contains("modal-backdrop")) {
+      onClose();
+    }
+  };
+
   return (
-    <div className="modal-backdrop">
-      <div className="modal-card">
+    <div className="modal-backdrop" onClick={handleBackdropClick}>
+      <div className="modal-card" onClick={(e) => e.stopPropagation()}>
         <ReactMarkdown
           components={{
             code({ node, className, children, ...props }) {

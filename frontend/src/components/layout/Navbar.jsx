@@ -1,10 +1,18 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import ReadMeModal from "../ui/ReadMeModal";
 import "../styles/Navbar.css";
 
 export default function Navbar() {
   const [showReadMe, setShowReadMe] = useState(false);
+  
+  useEffect(() => {
+    const hasSeen = localStorage.getItem("hasSeenReadMe");
+    if (!hasSeen) {
+      setShowReadMe(true); 
+      localStorage.setItem("hasSeenReadMe", "true");
+    }
+  }, []);
 
   return (
     <>
