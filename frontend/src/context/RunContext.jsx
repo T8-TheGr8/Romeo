@@ -2,7 +2,8 @@
 import { createContext, useContext, useState, useEffect } from "react";
 
 const RunContext = createContext();
-const API_URL = "http://localhost:3000/api/runs";
+const API_URL =
+  import.meta.env.VITE_API_URL || "http://localhost:3000/api/runs";
 
 export function RunProvider({ children }) {
   const [runs, setRuns] = useState([]);
@@ -16,7 +17,7 @@ export function RunProvider({ children }) {
         const data = await res.json();
         setRuns(data);
       } catch (err) {
-        console.error("❌ Failed to fetch runs:", err);
+        console.error("Failed to fetch runs:", err);
       } finally {
         setLoading(false);
       }
