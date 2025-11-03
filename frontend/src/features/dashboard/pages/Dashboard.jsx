@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useRunContext } from "@/context/RunContext";
-import { parseGpx } from "@/utils/parseGpx";
-import { formatPace } from "@/utils/formatPace";
-import { useWeeklyStats } from "@/hooks/useWeeklyStats";
-import RunCard from "@/features/runs/components/RunCard";
-import WeeklySummary from "@/features/dashboard/components/WeeklySummary";
-import WeeklyMileageChart from "../components/WeeklyMileageChart";
-import AchievementsPanel from "../components/AchievementsPanel";
+import { parseGpx } from "@/utils/parseGpx.js";
+import { formatPace } from "@/utils/formatPace.js";
+import { useWeeklyStats } from "@/hooks/useWeeklyStats.js";
+import RunCard from "@/features/runs/components/RunCard.jsx";
+import WeeklySummary from "@/features/dashboard/components/WeeklySummary.jsx";
+import WeeklyMileageChart from "../components/WeeklyMileageChart.jsx";
+import AchievementsPanel from "../components/AchievementsPanel.jsx";
 import "../styles/Dashboard.css";
 
 export default function Dashboard() {
