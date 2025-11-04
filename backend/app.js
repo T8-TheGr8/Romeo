@@ -9,11 +9,10 @@ const app = express();
 
 app.use(
   cors({
-    origin: ["https://elaborate-froyo-0477a8.netlify.app/",
+    origin: ["https://elaborate-froyo-0477a8.netlify.app",
       "https://localhost:5173",
      ],
      methods: ["GET", "POST", "PUT", "DELETE"],
-     credentials: true,
   })
 );
 app.use(express.json({ limit: "10mb" }));
