@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import "./Settings.css";
 
 export default function Settings() {
@@ -7,7 +8,7 @@ export default function Settings() {
     );
     if (confirmClear) {
       localStorage.clear();
-      window.location.reload(); 
+      Navigate("/");
     }
   };
 
