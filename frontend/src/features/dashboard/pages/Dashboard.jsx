@@ -38,7 +38,7 @@ export default function Dashboard() {
             distance: parsed.distanceMi || 3.1,
             duration: parsed.movingTime || 1600,
             elapsedTime: parsed.elapsedTime || parsed.movingTime,
-            notes: "🏃‍♂️ Example run — upload your own to get started!",
+            notes: "Example run — Waiting for backend server to boot up",
             route: parsed.route,
           });
         })
