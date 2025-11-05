@@ -4,6 +4,7 @@ import RunMap from "../components/RunMap";
 import { formatDate } from "@/utils/formatDate";
 import { formatTime } from "@/utils/formatTime";
 import { formatPace } from "@/utils/formatPace";
+import SplitChart from "../components/SplitChart"; 
 import "../styles/RunDetails.css";
 
 export default function RunDetails() {
@@ -71,19 +72,25 @@ export default function RunDetails() {
           <div className="run-map card">
             <RunMap route={run.route} />
           </div>
-
-          <div className="run-splits card">
-            <span>Splits Chart Coming Soon 📊</span>
-          </div>
         </>
       )}
+      {!run.route || run.route.length === 0 ? (
+        <div className="run-splits card">
+          <span>Splits Chart Coming Soon 📊</span>
+        </div>
+      ) : (
+        <SplitChart run={run}/>
+      )}
+
       <button
         className="btn"
         onClick={async () => {
           if (!window.confirm("Are you sure you want to delete this run?"))
             return;
 
-          const password = prompt("Deletion is password protected because it is irreversible. Please contact me for a demo of this feature."); 
+          const password = prompt(
+            "Deletion is password protected because it is irreversible. Please contact me for a demo of this feature."
+          );
           if (!password) return;
 
           try {

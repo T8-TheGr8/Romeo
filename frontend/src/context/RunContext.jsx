@@ -1,4 +1,3 @@
-// src/context/RunContext.jsx
 import { createContext, useContext, useState, useEffect } from "react";
 
 const RunContext = createContext();
@@ -41,7 +40,7 @@ export function RunProvider({ children }) {
       const savedRun = await res.json();
       setRuns((prev) => [savedRun, ...prev]);
     } catch (err) {
-      console.error("❌ Failed to add run:", err);
+      console.error("Failed to add run:", err);
     }
   };
 

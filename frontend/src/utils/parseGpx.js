@@ -1,3 +1,5 @@
+import { haversine } from "./haversine";
+
 export const parseGpx = async (file) => {
   const text = await file.text();
   const xml = new DOMParser().parseFromString(text, "text/xml");
@@ -11,7 +13,7 @@ export const parseGpx = async (file) => {
   let prev = null;
 
   // speed threshold in m/s to consider "moving"
-  const MIN_SPEED = 0.5; // ≈1.1 mph — tweak as you like
+  const MIN_SPEED = 1; // ≈2.2 mph 
 
   for (let i = 0; i < pts.length; i++) {
     const lat = +pts[i].getAttribute("lat");
@@ -43,18 +45,4 @@ export const parseGpx = async (file) => {
     : null;
 
   return { distanceMi, movingTime, elapsedTime, date, route };
-};
-
-// helper unchanged
-const haversine = (a, b) => {
-  const R = 6371000;
-  const dLat = ((b.lat - a.lat) * Math.PI) / 180;
-  const dLon = ((b.lon - a.lon) * Math.PI) / 180;
-  const lat1 = (a.lat * Math.PI) / 180;
-  const lat2 = (b.lat * Math.PI) / 180;
-
-  const h =
-    Math.sin(dLat / 2) ** 2 +
-    Math.cos(lat1) * Math.cos(lat2) * Math.sin(dLon / 2) ** 2;
-  return 2 * R * Math.atan2(Math.sqrt(h), Math.sqrt(1 - h));
 };
