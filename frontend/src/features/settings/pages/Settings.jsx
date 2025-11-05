@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import ThemeToggle from "../components/ThemeToggle";
-import Card from "@/components/ui/Card"
+import Card from "@/components/ui/Card";
 import "../styles/Settings.css";
 
 export default function Settings() {
@@ -16,29 +16,25 @@ export default function Settings() {
   };
 
   return (
-      <div className="settings-page">
-        <div className="settings-card">
-      <Card title="Data Management" layout="column">
-        <div>
-          <p>
-            Use this option to clear all locally saved run data (used for
-            testing prior to database connection)
-          </p>
-        </div>
-        <button className="btn" onClick={handleClearData}>
-          Clear All Data
-        </button>
-      </Card>
-      </div>
+    <div className="settings-page">
+        <Card title="Data Management" layout="column">
+          <div>
+            <p>
+              Use this option to clear all locally saved run data (used for
+              testing prior to database connection)
+            </p>
+          </div>
+          <button className="btn" onClick={handleClearData}>
+            Clear All Data
+          </button>
+        </Card>
 
-      <div className="settings-card">
-      <Card title="Theme Toggle" layout="column">
-        <div>
-          <p>Click this button to toggle themes!</p>
-        </div>
-        <ThemeToggle />
-      </Card>
-      </div>
+        <Card title="Theme Toggle" layout="column">
+          <div>
+            <p>Click this button to toggle themes!</p>
+          </div>
+          <ThemeToggle />
+        </Card>
     </div>
   );
 }

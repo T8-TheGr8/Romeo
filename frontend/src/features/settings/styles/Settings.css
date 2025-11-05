@@ -1,10 +1,7 @@
 .settings-page {
-  max-width: 750px;
-  justify-self: center; 
-}
-
-.settings-card {
-  padding: var(--padding); 
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
 .btn {

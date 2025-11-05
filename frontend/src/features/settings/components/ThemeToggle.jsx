@@ -8,16 +8,16 @@ export default function ThemeToggle() {
   useEffect(() => {
     const root = document.documentElement; 
     if (useAltTheme) {
-      root.classList.add("rework");
+      root.classList.add("dark");
     } else {
-      root.classList.remove("rework");
+      root.classList.remove("dark");
     }
     localStorage.setItem("useAltTheme", useAltTheme);
   }, [useAltTheme]);
 
   return (
     <button className="btn" onClick={() => setUseAltTheme((prev) => !prev)}>
-      {useAltTheme ? "Switch to Default Theme" : "Switch to Reworked Theme"}
+      {useAltTheme ? "Switch to Default Theme" : "Switch to Dark Theme"}
     </button>
   );
 }
