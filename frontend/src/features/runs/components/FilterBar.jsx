@@ -1,14 +1,15 @@
+import Card from "@/components/ui/Card"
 import "../styles/FilterBar.css";
 
 export default function FilterBar({ search, setSearch, sort, setSort }) {
   return (
-    <div className="filter-bar card">
+    <Card className="filter-bar" layout="row" sunken="false">
       <input
         type="text"
         placeholder="Search runs..."
         value={search}
         onChange={(e) => setSearch(e.target.value)}
-        className="filter-input"
+        className="filter-input sunken"
       />
 
       <select
@@ -21,6 +22,6 @@ export default function FilterBar({ search, setSearch, sort, setSort }) {
         <option value="longest">Longest Distance</option>
         <option value="fastest">Fastest Pace</option>
       </select>
-    </div>
+    </Card>
   );
 }

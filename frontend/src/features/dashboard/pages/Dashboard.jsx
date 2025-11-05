@@ -19,7 +19,6 @@ export default function Dashboard() {
   );
   const latestRun = sortedRuns[0];
 
-  // If no runs exist, load the placeholder GPX
   useEffect(() => {
     if (runs.length === 0) {
       fetch("/assets/sample-run.gpx")
@@ -66,10 +65,8 @@ export default function Dashboard() {
 
   return (
     <div className="dashboard">
-      <h2 className="section-title">Highlighted Run</h2>
-
       {runToDisplay ? (
-        <RunCard
+        <RunCard title="Most Recent Run"
           run={{
             ...runToDisplay,
             pace: formatPace(runToDisplay.duration, runToDisplay.distance),
@@ -82,8 +79,6 @@ export default function Dashboard() {
       ) : (
         <p className="no-runs">Loading demo run...</p>
       )}
-
-      <h3 className="section-title">This Week's Summary</h3>
       <WeeklySummary stats={weeklyStats} />
       <WeeklyMileageChart data={weeklyMileage} />
       <AchievementsPanel

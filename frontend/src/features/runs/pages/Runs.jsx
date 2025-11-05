@@ -62,7 +62,6 @@ export default function Runs() {
 
     return () => current && observer.unobserve(current);
   }, []);
-  console.log("Run Objects:", runs);
 
   return (
     <div className="runs-page">

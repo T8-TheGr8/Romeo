@@ -9,7 +9,7 @@ export default function AchievementsPanel({ achievements, onSelect }) {
         {achievements.map((ach, index) => (
           <li 
             key={index}
-            className="achievement-item"
+            className="achievement-item sunken"
             onClick={() => onSelect && onSelect(ach)}
           >
             <span className="achievement-name">{ach.name}</span>

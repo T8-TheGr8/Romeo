@@ -18,6 +18,8 @@
   --shadow-high: 0 8px 24px rgba(0, 0, 0, 0.3);
 
   --radius: 12px;
+  --radius-lg: 16px;
+  --padding: 10px
 }
 
 :root.rework {
@@ -29,14 +31,15 @@
   --text-muted: #7c7c7c;
   --border: #d6d1cb;
 
-  --accent: #4caf50; /* forest green */
-  --accent-secondary: #d0511b; /* clay orange */
+  --accent: #4caf50;
+  --accent-secondary: #d0511b;
 
   --shadow-low: 0 2px 4px rgba(0, 0, 0, 0.25);
   --shadow-medium: 0 2px 4px rgba(0, 0, 0, 0.25);
   --shadow-high: 0 2px 4px rgba(0, 0, 0, 0.25);
 
   --radius: 12px;
+  --padding: 10px;
 }
 
 body {
@@ -60,9 +63,11 @@ body {
   transform: translateY(-2px);
 }
 
-.metric {
-  font-family: "Roboto Mono", monospace;
-  letter-spacing: 0.5px;
+.sunken {
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.25);
+  background: var(--bg-sunken);
+  border-radius: var(--radius);
+  padding: var(--padding);
 }
 
 .btn {

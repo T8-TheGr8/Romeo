@@ -31,36 +31,37 @@ export default function RunDetails() {
         ← Back to Runs
       </button>
 
-      <h2>Run Details</h2>
-
-      <div className="run-details-info card">
-        {run.name && (
+      <div className="card">
+        <h2>Run Details</h2>
+        <div className="sunken">
+          {run.name && (
+            <p>
+              <strong>Name:</strong> {run.name}
+            </p>
+          )}
           <p>
-            <strong>Name:</strong> {run.name}
+            <strong>Date:</strong> {formatDate(run.date)}
           </p>
-        )}
-        <p>
-          <strong>Date:</strong> {formatDate(run.date)}
-        </p>
-        <p>
-          <strong>Distance:</strong> {parseFloat(run.distance).toFixed(2)} mi
-        </p>
-        <p>
-          <strong>Running Time:</strong> {formatTime(run.duration)}
-        </p>
-        {run.elapsedTime && (
           <p>
-            <strong>Elapsed Time:</strong> {formatTime(run.elapsedTime)}
+            <strong>Distance:</strong> {parseFloat(run.distance).toFixed(2)} mi
           </p>
-        )}
-        <p>
-          <strong>Pace:</strong> {formatPace(run.duration, run.distance)}
-        </p>
-        {run.notes && (
           <p>
-            <strong>Notes:</strong> {run.notes}
+            <strong>Running Time:</strong> {formatTime(run.duration)}
           </p>
-        )}
+          {run.elapsedTime && (
+            <p>
+              <strong>Elapsed Time:</strong> {formatTime(run.elapsedTime)}
+            </p>
+          )}
+          <p>
+            <strong>Pace:</strong> {formatPace(run.duration, run.distance)}
+          </p>
+          {run.notes && (
+            <p>
+              <strong>Notes:</strong> {run.notes}
+            </p>
+          )}
+        </div>
       </div>
 
       {!run.route || run.route.length === 0 ? (
@@ -79,7 +80,7 @@ export default function RunDetails() {
           <span>Splits Chart Coming Soon 📊</span>
         </div>
       ) : (
-        <SplitChart run={run}/>
+        <SplitChart run={run} />
       )}
 
       <button

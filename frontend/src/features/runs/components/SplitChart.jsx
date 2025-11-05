@@ -1,5 +1,6 @@
 import { formatPace } from "@/utils/formatPace";
 import { haversine } from "@/utils/haversine";
+import Card from "@/components/ui/Card" 
 import "../styles/SplitChart.css";
 
 export default function SplitChart({ run }) {
@@ -50,7 +51,7 @@ export default function SplitChart({ run }) {
   splits[splits.length - 1][1] = (run.distance - (splits.length - 1)); 
 
   return (
-    <div className="card split-card">
+    <Card title="Splits">
       <table className="splits-table">
         <thead>
           <tr>
@@ -69,6 +70,6 @@ export default function SplitChart({ run }) {
           ))}
         </tbody>
       </table>
-    </div>
+    </Card>
   );
 }

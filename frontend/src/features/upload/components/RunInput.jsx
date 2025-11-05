@@ -24,7 +24,7 @@ export default function RunInput({
           value={value}
           onChange={onChange}
           required={required}
-          className="run-input-field"
+          className="run-input-field sunken"
         >
           <option value="">Select...</option>
           {options.map((opt) => (
@@ -41,7 +41,7 @@ export default function RunInput({
           onChange={onChange}
           rows="3"
           required={required}
-          className="run-input-field"
+          className="run-input-field sunken"
           placeholder="How did it feel?"
         />
       ) : (
@@ -53,7 +53,7 @@ export default function RunInput({
           onChange={onChange}
           required={required}
           accept={accept}
-          className="run-input-field"
+          className="run-input-field sunken"
         />
       )}
     </div>

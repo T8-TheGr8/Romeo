@@ -1,6 +1,12 @@
-import { MapContainer, TileLayer, Polyline, Marker, useMap } from "react-leaflet";
+import {
+  MapContainer,
+  TileLayer,
+  Polyline,
+  Marker,
+  useMap,
+} from "react-leaflet";
 import L from "leaflet";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import "../styles/RunMap.css";
 
 const startIcon = L.divIcon({
@@ -31,6 +37,8 @@ function FitMapBounds({ route }) {
 }
 
 export default function RunMap({ route }) {
+  const mapRef = useRef(null);
+
   if (!route || route.length === 0) {
     return <div>No GPS data</div>;
   }
@@ -38,24 +46,49 @@ export default function RunMap({ route }) {
   const positions = route.map((p) => [p.lat, p.lon]);
   const center = positions[0];
 
+  // ✅ Destroy previous map instance if it exists
+  useEffect(() => {
+    return () => {
+      if (mapRef.current) {
+        mapRef.current.remove();
+        mapRef.current = null;
+      }
+    };
+  }, []);
+
   return (
-    <MapContainer
-      center={center}
-      zoom={13}
-      scrollWheelZoom={false}
-      style={{ height: "300px", width: "100%", borderRadius: "12px" }}
+    <div
+      key={center.join(",")} // ✅ Force React to create a new container
+      style={{
+        height: "300px",
+        width: "100%",
+        borderRadius: "12px",
+        overflow: "hidden",
+      }}
     >
-      <TileLayer
-        attribution='&copy; OpenStreetMap contributors'
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-      />
+      <MapContainer
+        whenCreated={(map) => (mapRef.current = map)} // ✅ Register and manage map instance
+        center={center}
+        zoom={13}
+        scrollWheelZoom={false}
+        style={{ height: "100%", width: "100%" }}
+      >
+        <TileLayer
+          attribution="&copy; OpenStreetMap contributors"
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        />
 
-      <FitMapBounds route={route} />
+        <FitMapBounds route={route} />
 
-      <Polyline positions={positions} color="var(--accent-secondary)" weight={4} />
+        <Polyline
+          positions={positions}
+          color="var(--accent-secondary)"
+          weight={4}
+        />
 
-      <Marker position={positions[0]} icon={startIcon} />
-      <Marker position={positions[positions.length - 1]} icon={finishIcon} />
-    </MapContainer>
+        <Marker position={positions[0]} icon={startIcon} />
+        <Marker position={positions[positions.length - 1]} icon={finishIcon} />
+      </MapContainer>
+    </div>
   );
 }

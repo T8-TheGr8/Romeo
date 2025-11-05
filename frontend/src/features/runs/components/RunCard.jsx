@@ -5,13 +5,13 @@ import { formatPace } from "@/utils/formatPace";
 import { formatDate } from "@/utils/formatDate"
 import "../styles/RunCard.css";
 
-export default function RunCard({ run, onClick }) {
+export default function RunCard({ run, onClick, title="" }) {
   const runningTime =
     typeof run.duration === "number" ? run.duration : Number(run.duration) || 0;
   const pace = formatPace(runningTime, run.distance);
 
   return (
-    <Card className="run-card" onClick={onClick} hover layout="split">
+    <Card title={`${title}`} className="run-card" onClick={onClick} hover layout="split">
       {/* LEFT PANEL — Stats */}
       <div className="left-panel">
         {run.name && (

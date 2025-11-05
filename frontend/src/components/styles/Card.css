@@ -1,7 +1,7 @@
 .card {
   background: var(--bg-elevated);
   border: 1px solid var(--border);
-  border-radius: var(--radius);
+  border-radius: var(--radius-lg);
   padding: 1.25rem;
   box-shadow: var(--shadow-low);
   transition: transform 0.15s ease, box-shadow 0.15s ease;
@@ -15,10 +15,10 @@
 }
 
 .card-title {
-  font-size: 1.1rem;
-  font-weight: 600;
+  font-size: 1.25rem;
+  font-weight: bold;
   margin-bottom: 1rem;
-  color: var(--text-main);
+  color: var(--accent-secondary);
 }
 
 .card-content {
@@ -65,10 +65,9 @@
   min-width: 200px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  background: var(--bg-sunken);
+  justify-content: center; 
   border-radius: var(--radius);
-  padding-left: 10px;
+  padding-left: var(--padding); 
 }
 
 /* Right Panel */

@@ -1,18 +1,3 @@
-.run-card {
-  display: flex;
-  align-items: stretch;
-  gap: 1.5rem;
-
-  background: var(--bg-elevated);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 1.2rem;
-
-  box-shadow: var(--shadow-low);
-  cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
 .map-placeholder {
   flex: 1.4;
   display: flex;

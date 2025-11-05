@@ -1,14 +1,15 @@
+import Card from "@/components/ui/Card";
 import "../styles/WeeklySummary.css";
 
 export default function WeeklySummary({ stats }) {
   return (
-    <div className="weekly-summary card">
+    <Card title="This Week's Summary" className="weekly-summary" layout="row">
       {stats.map((item) => (
         <div className="weekly-item" key={item.label}>
           <span className="metric-title">{item.label}</span>
-          <span className="metric-value small">{item.value}</span>
+          <span className="metric-value">{item.value}</span>
         </div>
       ))}
-    </div>
+    </Card>
   );
 }

@@ -4,7 +4,6 @@
   gap: 1rem;
 }
 
-/* The form already has class="card", so it keeps the elevated/card look */
 .upload-form {
   display: flex;
   flex-direction: column;
@@ -13,22 +12,20 @@
 
 .upload-form label {
   font-size: 0.9rem;
-  color: var(--text-muted);
+  color: var(--text-main);
 }
 
-/* Inputs, selects, textareas – now use bg-surface instead of surface */
 .upload-form input,
 .upload-form select,
 .upload-form textarea {
-  background: var(--bg-sunken); /* dark form surface layer */
-  color: var(--text-main);
+  background: var(--bg-sunken);
+  color: var(--text-muted);
   border: 1px solid var(--border);
   border-radius: 8px;
   padding: 0.6rem;
   font-size: 0.9rem;
 }
 
-/* Focus = accent color glow (not white) */
 .upload-form input:focus,
 .upload-form select:focus,
 .upload-form textarea:focus {

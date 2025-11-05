@@ -10,6 +10,7 @@ export default function Card({
   variant = "default",
   hover = false,
   layout = "column", // "column" | "row" | "split"
+  sunken = "true"
 }) {
   const classes = [
     "card",
@@ -20,11 +21,15 @@ export default function Card({
   ]
     .filter(Boolean)
     .join(" ");
+  let sink = ""; 
+  if (sunken == "true") {
+    sink = "sunken";
+  }
 
   return (
     <div className={classes} onClick={onClick}>
       {title && <h3 className="card-title">{title}</h3>}
-      <div className="card-content">{children}</div>
+      <div className={`card-content ${sink}`}>{children}</div>
       {footer && <div className="card-footer">{footer}</div>}
     </div>
   );
