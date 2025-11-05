@@ -1,8 +1,9 @@
 .card {
-  background: var(--surface, #fff);
+  background: var(--bg-elevated); /* was var(--surface, #fff) */
+  border: 1px solid var(--border);
   border-radius: 12px;
   padding: 1.25rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-low); /* consistent theme shadow */
   transition: transform 0.15s ease, box-shadow 0.15s ease;
   box-sizing: border-box;
   overflow: hidden;
@@ -10,13 +11,14 @@
 
 .card-hover:hover {
   transform: translateY(-3px);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+  box-shadow: var(--shadow-medium); /* slightly stronger on hover */
 }
 
 .card-title {
   font-size: 1.1rem;
   font-weight: 600;
   margin-bottom: 1rem;
+  color: var(--text-main);
 }
 
 .card-content {
@@ -26,17 +28,17 @@
 }
 
 .card-footer {
-  border-top: 1px solid var(--border, #ccc);
+  border-top: 1px solid var(--border);
   margin-top: 1rem;
   padding-top: 0.75rem;
   font-size: 0.9rem;
-  color: var(--text-muted, #777);
+  color: var(--text-muted);
 }
 
+/* Layout Variants (unchanged structurally) */
 .card-column .card-content {
   flex-direction: column;
 }
-
 
 .card-row .card-content {
   flex-direction: row;
@@ -58,31 +60,31 @@
   box-sizing: border-box;
 }
 
-/* Left panel (stats) */
+/* Left Panel */
 .card-split .left-panel {
-  flex: 1 1 40%;             
+  flex: 1 1 40%;
   min-width: 200px;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-/* Right panel (map) */
+/* Right Panel */
 .card-split .right-panel {
-  flex: 1 1 60%;            
+  flex: 1 1 60%;
   min-width: 200px;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 12px;
   overflow: hidden;
-  background: var(--border);
+  background: var(--bg-surface); /* was var(--border) */
+  border: 1px solid var(--border);
   position: relative;
   box-sizing: border-box;
 }
 
-
-/* Inner ratio box preserves shape */
+/* Maintain ratio box for maps/images */
 .card-split .right-panel .ratio-box {
   width: 100%;
   aspect-ratio: 16 / 9;
@@ -93,7 +95,6 @@
   align-items: center;
 }
 
-/* Embedded visuals (map, img, etc.) */
 .card-split .right-panel iframe,
 .card-split .right-panel img,
 .card-split .right-panel canvas {
@@ -102,23 +103,19 @@
   object-fit: cover;
 }
 
-/* =========================================================
-   Scroll & Responsive Polish
-   ========================================================= */
-
-/* Subtle horizontal scroll fade */
+/* Scroll styling (kept same, themed color) */
 .card-split .card-content::-webkit-scrollbar {
   height: 6px;
 }
 .card-split .card-content::-webkit-scrollbar-thumb {
-  background: var(--border, #bbb);
+  background: var(--border);
   border-radius: 4px;
 }
 .card-split .card-content::-webkit-scrollbar-track {
   background: transparent;
 }
 
-/* Tighter padding and gap on narrow screens */
+/* Responsive – color untouched */
 @media (max-width: 600px) {
   .card {
     padding: 1rem;
@@ -128,13 +125,9 @@
   }
 }
 
-/* =========================================================
-   Utility Variants
-   ========================================================= */
+/* Utility */
 .card-inline {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-
-

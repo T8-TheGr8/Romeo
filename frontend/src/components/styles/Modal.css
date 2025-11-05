@@ -1,3 +1,4 @@
+/* Backdrop stays the same — just darkened slightly for contrast */
 .modal-backdrop {
   position: fixed;
   inset: 0;
@@ -9,8 +10,9 @@
   backdrop-filter: blur(3px);
 }
 
+/* Modal container */
 .modal-card {
-  background: var(--surface); 
+  background: var(--surface);
   color: var(--text-main);
   padding: 2rem;
   border-radius: 12px;
@@ -18,21 +20,23 @@
   max-width: 1000px;
   max-height: 80vh;
   overflow-y: auto;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
-  line-height: 1.6;
   border: 1px solid var(--border);
+  box-shadow: var(--shadow-medium);
+  line-height: 1.6;
   animation: modal-fade-in 0.25s ease-out;
   font-family: "Inter", sans-serif;
 }
 
+/* Headings */
 .modal-card h1,
 .modal-card h2,
 .modal-card h3 {
-  color: var(--accent); 
+  color: var(--accent);
   margin: 1rem 0 0.5rem;
   font-weight: 700;
 }
 
+/* Text */
 .modal-card p,
 .modal-card li {
   color: var(--text-main);
@@ -40,6 +44,7 @@
   margin-bottom: 1rem;
 }
 
+/* Links */
 .modal-card a {
   color: var(--accent);
   font-weight: 600;
@@ -48,8 +53,9 @@
   opacity: 0.8;
 }
 
+/* Inline code */
 .modal-card code {
-  background: #2e3238;
+  background: var(--bg);
   color: var(--accent);
   padding: 2px 6px;
   border-radius: 4px;
@@ -57,14 +63,17 @@
   font-size: 0.9rem;
 }
 
+/* Code blocks */
 .modal-card pre {
-  background: #2e3238;
+  background: var(--bg);
+  color: var(--text-main);
   padding: 1rem;
   border-radius: 8px;
   overflow-x: auto;
   border: 1px solid var(--border);
 }
 
+/* Buttons */
 .modal-actions {
   display: flex;
   justify-content: flex-end;
@@ -75,7 +84,7 @@
   padding: 0.6rem 1.2rem;
   border: none;
   border-radius: 8px;
-  background: var(--accent); 
+  background: var(--accent);
   color: var(--bg);
   font-weight: 600;
   cursor: pointer;
@@ -86,6 +95,29 @@
   background: var(--accent-secondary);
 }
 
+/* Input Styling — updated to match theme */
+.modal-input {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  margin-bottom: 1rem;
+
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 1rem;
+  font-family: inherit;
+
+  background-color: var(--bg-surface, #2b3036); /* darker input background */
+  color: var(--text-main);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.modal-input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 6px rgba(0, 173, 181, 0.4); /* themed glow */
+}
+
+/* Animation */
 @keyframes modal-fade-in {
   from {
     opacity: 0;
@@ -95,43 +127,4 @@
     opacity: 1;
     transform: scale(1);
   }
-}
-
-.modal-card strong {
-  color: var(--accent-secondary); 
-  font-weight: 700;
-}
-
-.modal-card ul {
-  list-style-type: disc;
-  padding-left: 1.2rem; 
-  margin-bottom: 1rem;
-}
-
-.modal-card ul ul {
-  list-style-type: circle; 
-  padding-left: 1.5rem;
-  margin-top: 0.4rem;
-}
-
-.modal-input {
-  width: 100%;
-  padding: 0.5rem 0.75rem;
-  margin-bottom: 1rem;
-
-  border: 1px solid var(--border);
-  border-radius: 6px;
-
-  font-size: 1rem;
-  font-family: inherit;
-
-  background-color: #f9f9f9;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
-}
-
-.modal-input:focus {
-  outline: none;
-  border-color: var(--accent);
-  box-shadow: 0 0 4px rgba(0, 123, 255, 0.4);
-  background-color: #fff;
 }
