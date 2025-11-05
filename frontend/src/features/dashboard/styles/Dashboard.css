@@ -22,8 +22,7 @@
 
 .highlight-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4),
-              0 0 10px var(--accent);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4), 0 0 10px var(--accent);
 }
 
 /* 🔹 Stats inside the highlighted run card */
@@ -56,7 +55,7 @@
 .map-placeholder {
   flex: 1.2;
   height: 180px;
-  border-radius: 12px;
+  border-radius: var(--radius);
   background: var(--bg-sunken);
   border: 2px dashed var(--accent);
   display: flex;

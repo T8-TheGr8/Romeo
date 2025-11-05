@@ -10,7 +10,9 @@
 }
 
 .run-input-field {
-  background: var(--bg-surface); /* 🔄 was var(--surface) — now consistent with form inputs */
+  background: var(
+    --bg-sunken
+  ); /* 🔄 was var(--surface) — now consistent with form inputs */
   color: var(--text-main);
   border: 1px solid var(--border);
   border-radius: 8px;
@@ -24,7 +26,6 @@
 .run-input-field:focus {
   outline: none;
   border-color: var(--accent); /* ✅ Only color change */
-  box-shadow:
-    0 0 6px rgba(0, 173, 181, 0.4), /* teal glow */
-    inset 0 2px 4px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 0 6px rgba(0, 173, 181, 0.4),
+    /* teal glow */ inset 0 2px 4px rgba(0, 0, 0, 0.25);
 }

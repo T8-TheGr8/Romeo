@@ -1,9 +1,9 @@
 .card {
-  background: var(--bg-elevated); /* was var(--surface, #fff) */
+  background: var(--bg-elevated);
   border: 1px solid var(--border);
-  border-radius: 12px;
+  border-radius: var(--radius);
   padding: 1.25rem;
-  box-shadow: var(--shadow-low); /* consistent theme shadow */
+  box-shadow: var(--shadow-low);
   transition: transform 0.15s ease, box-shadow 0.15s ease;
   box-sizing: border-box;
   overflow: hidden;
@@ -11,7 +11,7 @@
 
 .card-hover:hover {
   transform: translateY(-3px);
-  box-shadow: var(--shadow-medium); /* slightly stronger on hover */
+  box-shadow: var(--shadow-medium);
 }
 
 .card-title {
@@ -35,7 +35,6 @@
   color: var(--text-muted);
 }
 
-/* Layout Variants (unchanged structurally) */
 .card-column .card-content {
   flex-direction: column;
 }
@@ -67,6 +66,9 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  background: var(--bg-sunken);
+  border-radius: var(--radius);
+  padding-left: 10px;
 }
 
 /* Right Panel */
@@ -76,15 +78,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 12px;
+  border-radius: var(--radius);
   overflow: hidden;
-  background: var(--bg-surface); /* was var(--border) */
+  background: var(--bg-sunken);
   border: 1px solid var(--border);
   position: relative;
   box-sizing: border-box;
 }
 
-/* Maintain ratio box for maps/images */
 .card-split .right-panel .ratio-box {
   width: 100%;
   aspect-ratio: 16 / 9;
@@ -103,19 +104,6 @@
   object-fit: cover;
 }
 
-/* Scroll styling (kept same, themed color) */
-.card-split .card-content::-webkit-scrollbar {
-  height: 6px;
-}
-.card-split .card-content::-webkit-scrollbar-thumb {
-  background: var(--border);
-  border-radius: 4px;
-}
-.card-split .card-content::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-/* Responsive – color untouched */
 @media (max-width: 600px) {
   .card {
     padding: 1rem;
@@ -123,11 +111,4 @@
   .card-split .card-content {
     gap: 1rem;
   }
-}
-
-/* Utility */
-.card-inline {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 }

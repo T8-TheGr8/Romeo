@@ -3,27 +3,14 @@
   align-items: stretch;
   gap: 1.5rem;
 
-  background: var(--bg-elevated);     
+  background: var(--bg-elevated);
   border: 1px solid var(--border);
-  border-radius: 12px;
+  border-radius: var(--radius);
   padding: 1.2rem;
 
   box-shadow: var(--shadow-low);
   cursor: pointer;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.run-card:hover {
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-medium);
-}
-
-.run-stats {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: 0.8rem;
 }
 
 .map-placeholder {
@@ -37,8 +24,8 @@
   aspect-ratio: 16 / 9;
   overflow: hidden;
 
-  border-radius: 12px;
-  background: var(--bg-surface); 
+  border-radius: var(--radius);
+  background: var(--bg-sunken);
   border: 1px solid var(--border);
   color: var(--text-muted);
   font-size: 0.9rem;
@@ -51,27 +38,6 @@
   .run-card {
     flex-direction: column;
     gap: 1rem;
-  }
-
-  .run-stats {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(120px, 1fr));
-    gap: 1rem 2rem;
-    text-align: center;
-  }
-
-  .run-stats .metric-title {
-    display: block;
-    font-weight: 600;
-    color: var(--text-muted);
-    margin-bottom: 0.25rem;
-  }
-
-  .run-stats .note {
-    grid-column: 1 / -1;
-    text-align: center;
-    margin-top: 0.5rem;
-    font-style: italic;
   }
 
   .map-placeholder {

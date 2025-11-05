@@ -1,12 +1,10 @@
 .split-card {
-  background: var(--surface); 
+  background: var(--surface);
   border: 1px solid var(--border);
   padding: 1.25rem;
-  border-radius: 12px;
+  border-radius: var(--radius);
 
-  box-shadow: 
-    0 2px 4px rgba(0, 0, 0, 0.25),
-    0 8px 20px rgba(0, 0, 0, 0.15);  
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25), 0 8px 20px rgba(0, 0, 0, 0.15);
 
   margin-top: 1rem;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -23,11 +21,11 @@
   border-collapse: collapse;
   font-family: "Inter", sans-serif;
   border-radius: 10px;
-  overflow: hidden; 
+  overflow: hidden;
 }
 
 .splits-table thead {
-  background: var(--bg-dark); 
+  background: var(--bg-dark);
 }
 
 .splits-table th {

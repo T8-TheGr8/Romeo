@@ -5,7 +5,7 @@ import Dashboard from "@/features/dashboard/pages/Dashboard.jsx";
 import Runs from "@/features/runs/pages/Runs.jsx";
 import RunDetails from "@/features/runs/pages/RunDetails.jsx";
 import Upload from "@/features/upload/pages/Upload.jsx";
-import Settings from "@/features/settings/Settings.jsx";
+import Settings from "@/features/settings/components/Settings.jsx";
 import "./styles/App.css";
 
 export default function App() {

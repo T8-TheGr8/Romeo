@@ -15,7 +15,7 @@
   background: var(--surface);
   color: var(--text-main);
   padding: 2rem;
-  border-radius: 12px;
+  border-radius: var(--radius);
   width: 90%;
   max-width: 1000px;
   max-height: 80vh;
@@ -106,7 +106,7 @@
   font-size: 1rem;
   font-family: inherit;
 
-  background-color: var(--bg-surface, #2b3036); /* darker input background */
+  background-color: var(--bg-sunken, #2b3036); /* darker input background */
   color: var(--text-main);
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }

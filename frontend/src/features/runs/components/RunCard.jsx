@@ -13,11 +13,10 @@ export default function RunCard({ run, onClick }) {
   return (
     <Card className="run-card" onClick={onClick} hover layout="split">
       {/* LEFT PANEL — Stats */}
-      <div className="left-panel run-stats">
+      <div className="left-panel">
         {run.name && (
-          <div className="metric-group">
-            <span className="metric-title">Name</span>
-            <div className="metric-value">{run.name}</div>
+          <div>
+            <h2>{run.name}</h2>
           </div>
         )}
 
