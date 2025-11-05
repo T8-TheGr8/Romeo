@@ -1,14 +1,26 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useEffect } from "react";
 import { RunProvider } from "./context/RunContext.jsx";
 import Navbar from "@/components/layout/Navbar.jsx";
 import Dashboard from "@/features/dashboard/pages/Dashboard.jsx";
 import Runs from "@/features/runs/pages/Runs.jsx";
 import RunDetails from "@/features/runs/pages/RunDetails.jsx";
 import Upload from "@/features/upload/pages/Upload.jsx";
-import Settings from "@/features/settings/components/Settings.jsx";
+import Settings from "@/features/settings/pages/Settings.jsx";
 import "./styles/App.css";
 
 export default function App() {
+  useEffect(() => {
+    const root = document.documentElement;
+    const storedTheme = localStorage.getItem("useAltTheme") === "true";
+
+    if (storedTheme) {
+      root.classList.add("rework");
+    } else {
+      root.classList.remove("rework");
+    }
+  }, []);
+
   return (
     <RunProvider>
       <BrowserRouter>
@@ -26,4 +38,3 @@ export default function App() {
     </RunProvider>
   );
 }
-
