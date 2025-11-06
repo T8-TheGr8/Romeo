@@ -12,7 +12,6 @@ export default function RunCard({ run, onClick, title="" }) {
 
   return (
     <Card title={`${title}`} className="run-card" onClick={onClick} hover layout="split">
-      {/* LEFT PANEL — Stats */}
       <div className="left-panel">
         {run.name && (
           <div>
@@ -47,7 +46,6 @@ export default function RunCard({ run, onClick, title="" }) {
         {run.notes && <p className="note">{run.notes}</p>}
       </div>
 
-      {/* RIGHT PANEL — Map */}
       <div className="right-panel">
         {run.route ? <RunMap route={run.route} /> : <div>No route data</div>}
       </div>

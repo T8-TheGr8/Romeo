@@ -1,11 +1,11 @@
 .navbar {
-  background: var(--bg-sunken); /* Matches cards + elevated elements */
+  background: var(--bg-sunken);
   padding: 1rem 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid var(--border);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3); /* Adds elevation */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3); 
 }
 
 .brand {
@@ -36,13 +36,11 @@
   transition: color 0.2s ease, border-color 0.2s ease;
 }
 
-/* Active page indicator */
 .nav-links a.active {
   border-bottom: 2px solid var(--accent);
   color: var(--accent);
 }
 
-/* Hover effect */
 .nav-links a:hover {
   color: var(--accent);
 }

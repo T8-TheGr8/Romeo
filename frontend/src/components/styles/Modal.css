@@ -1,4 +1,3 @@
-/* Backdrop stays the same — just darkened slightly for contrast */
 .modal-backdrop {
   position: fixed;
   inset: 0;
@@ -10,7 +9,6 @@
   backdrop-filter: blur(3px);
 }
 
-/* Modal container */
 .modal-card {
   background: var(--bg);
   color: var(--text-main);
@@ -27,7 +25,6 @@
   font-family: "Inter", sans-serif;
 }
 
-/* Headings */
 .modal-card h1,
 .modal-card h2,
 .modal-card h3 {
@@ -36,7 +33,6 @@
   font-weight: 700;
 }
 
-/* Text */
 .modal-card p,
 .modal-card li {
   color: var(--text-main);
@@ -44,7 +40,6 @@
   margin-bottom: 1rem;
 }
 
-/* Links */
 .modal-card a {
   color: var(--accent);
   font-weight: 600;

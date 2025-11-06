@@ -1,5 +1,26 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Roboto+Mono:wght@400;600&display=swap");
 
+:root {
+  --bg: #faf8f5;
+  --bg-elevated: #ffffff;
+  --bg-sunken: #f0ebe695;
+
+  --text-main: #2f2f2f;
+  --text-muted: #7c7c7c;
+  --border: #d6d1cb;
+
+  --accent: #4caf50;
+  --accent-secondary: #d0511b;
+
+  --shadow-low: 0 2px 4px rgba(0, 0, 0, 0.25);
+  --shadow-medium: 0 2px 4px rgba(0, 0, 0, 0.25);
+  --shadow-high: 0 2px 4px rgba(0, 0, 0, 0.25);
+
+  --radius: 12px;
+  --radius-lg: 16px;
+  --padding: 10px;
+}
+
 :root.dark {
   --bg: #222831;
   --bg-elevated: #393e46;
@@ -20,27 +41,6 @@
   --radius: 12px;
   --radius-lg: 16px;
   --padding: 10px
-}
-
-:root {
-  --bg: #faf8f5;
-  --bg-elevated: #ffffff;
-  --bg-sunken: #f0ebe695;
-
-  --text-main: #2f2f2f;
-  --text-muted: #7c7c7c;
-  --border: #d6d1cb;
-
-  --accent: #4caf50;
-  --accent-secondary: #d0511b;
-
-  --shadow-low: 0 2px 4px rgba(0, 0, 0, 0.25);
-  --shadow-medium: 0 2px 4px rgba(0, 0, 0, 0.25);
-  --shadow-high: 0 2px 4px rgba(0, 0, 0, 0.25);
-
-  --radius: 12px;
-  --radius-lg: 16px;
-  --padding: 10px;
 }
 
 body {
