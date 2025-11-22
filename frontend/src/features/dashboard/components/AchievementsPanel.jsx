@@ -1,22 +1,21 @@
+import Card from "@/components/ui/Card.jsx";
 import "../styles/AchievementsPanel.css";
 
 export default function AchievementsPanel({ achievements, onSelect }) {
   return (
-    <div className="achievements-panel card">
-      <h3 className="panel-title">Achievements -  (Example... Coming Soon)</h3>
-
+    <Card title="Achievements - (Example... Coming Soon)" sunken="true">
       <ul className="achievement-list">
         {achievements.map((ach, index) => (
-          <li 
+          <li
             key={index}
-            className="achievement-item sunken"
+            className="achievement-item"
             onClick={() => onSelect && onSelect(ach)}
           >
-            <span className="achievement-name">{ach.name}</span>
-            <span className="achievement-date">{ach.date}</span>
+            <span className="metric-value achievement">{ach.name}</span>
+            <span className="metric-title">{ach.date}</span>
           </li>
         ))}
       </ul>
-    </div>
+    </Card>
   );
 }

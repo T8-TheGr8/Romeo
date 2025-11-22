@@ -9,30 +9,14 @@
   overflow: hidden;
 }
 
-.card-hover:hover {
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-medium);
-}
-
 .card-title {
-  font-size: 1.25rem;
-  font-weight: bold;
   margin-bottom: 1rem;
-  color: var(--accent-secondary);
 }
 
 .card-content {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
-}
-
-.card-footer {
-  border-top: 1px solid var(--border);
-  margin-top: 1rem;
-  padding-top: 0.75rem;
-  font-size: 0.9rem;
-  color: var(--text-muted);
 }
 
 .card-column .card-content {
@@ -65,8 +49,7 @@
   min-width: 200px;
   display: flex;
   flex-direction: column;
-  justify-content: center; 
-  border-radius: var(--radius);
+  justify-content: space-between;  
   padding-left: var(--padding); 
 }
 

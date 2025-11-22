@@ -1,10 +1,3 @@
-.panel-title {
-  margin-bottom: 0.75rem;
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: var(--text-main);
-}
-
 .achievement-list {
   list-style: none;
   display: flex;
@@ -21,6 +14,7 @@
   border: 1px solid var(--border);
   transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
   cursor: pointer;
+  border-radius: var(--radius); 
 }
 
 .achievement-item:hover {
@@ -29,12 +23,6 @@
   transform: translateX(4px);
 }
 
-.achievement-name {
-  font-weight: 600;
-  color: var(--accent-secondary);
-}
-
-.achievement-date {
-  font-size: 0.85rem;
-  color: var(--text-muted);
+.achievement {
+  font-size: 1rem !important; 
 }

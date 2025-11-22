@@ -4,7 +4,6 @@ import "../styles/Card.css";
 export default function Card({
   title,
   children,
-  footer,
   className = "",
   onClick,
   variant = "default",
@@ -21,6 +20,7 @@ export default function Card({
   ]
     .filter(Boolean)
     .join(" ");
+    
   let sink = ""; 
   if (sunken == "true") {
     sink = "sunken";
@@ -28,9 +28,8 @@ export default function Card({
 
   return (
     <div className={classes} onClick={onClick}>
-      {title && <h3 className="card-title">{title}</h3>}
+      {title && <h1 className="card-title">{title}</h1>}
       <div className={`card-content ${sink}`}>{children}</div>
-      {footer && <div className="card-footer">{footer}</div>}
     </div>
   );
 }
