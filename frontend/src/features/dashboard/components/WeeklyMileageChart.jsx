@@ -4,7 +4,7 @@ import "../styles/WeeklyMileageChart.css";
 
 export default function WeeklyMileageChart({ data }) {
   return (
-    <Card className="weekly-chart" title="Weekly Mileage... Coming Soon">
+    <Card title="Weekly Mileage... Coming Soon">
       <div className="chart-container">
         {data.map((week, idx) => (
           <div className="chart-bar-wrapper" key={idx}>

@@ -1,25 +1,22 @@
 .achievement-list {
-  list-style: none;
   display: flex;
   flex-direction: column;
   gap: 0.6rem;
-  padding: 0;
-  margin: 0;
 }
 
 .achievement-item {
   display: flex;
   justify-content: space-between;
   padding: 0.5rem 0.75rem;
-  border: 1px solid var(--border);
+  border: 1px solid var(--accent); 
   transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
   cursor: pointer;
   border-radius: var(--radius); 
 }
 
 .achievement-item:hover {
-  background: var(--surface);         
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+  background: var(--bg-elevated);         
+  box-shadow: var(--shadow-medium);
   transform: translateX(4px);
 }
 
