@@ -5,6 +5,7 @@ import { formatDate } from "@/utils/formatDate";
 import { formatTime } from "@/utils/formatTime";
 import { formatPace } from "@/utils/formatPace";
 import SplitChart from "../components/SplitChart"; 
+import Card from "@/components/ui/Card.jsx"; 
 import "../styles/RunDetails.css";
 
 export default function RunDetails() {
@@ -17,7 +18,7 @@ export default function RunDetails() {
   if (!run) {
     return (
       <div className="run-details-page">
-        <button className="back-btn" onClick={() => navigate(-1)}>
+        <button className="btn" onClick={() => navigate(-1)}>
           ← Back
         </button>
         <p>Run not found.</p>
@@ -31,9 +32,8 @@ export default function RunDetails() {
         ← Back to Runs
       </button>
 
-      <div className="card">
-        <h2>Run Details</h2>
-        <div className="sunken">
+      <Card title="Run Details">
+        <div>
           {run.name && (
             <p>
               <strong>Name:</strong> {run.name}
@@ -62,7 +62,7 @@ export default function RunDetails() {
             </p>
           )}
         </div>
-      </div>
+      </Card>
 
       {!run.route || run.route.length === 0 ? (
         <div className="no-gps card">
@@ -70,15 +70,15 @@ export default function RunDetails() {
         </div>
       ) : (
         <>
-          <div className="run-map card">
+          <div className="run-map">
             <RunMap route={run.route} />
           </div>
         </>
       )}
       {!run.route || run.route.length === 0 ? (
-        <div className="run-splits card">
-          <span>Splits Chart Coming Soon 📊</span>
-        </div>
+        <Card>
+          <span>Split chart not available for this run</span>
+        </Card>
       ) : (
         <SplitChart run={run} />
       )}

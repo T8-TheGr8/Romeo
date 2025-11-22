@@ -65,7 +65,6 @@ export default function Runs() {
 
   return (
     <div className="runs-page">
-      <h2 className="section-title">All Runs</h2>
 
       <FilterBar
         search={search}
