@@ -8,6 +8,8 @@ import RunDetails from "@/features/runs/pages/RunDetails.jsx";
 import Upload from "@/features/upload/pages/Upload.jsx";
 import Settings from "@/features/settings/pages/Settings.jsx";
 import "./styles/App.css";
+import "./components/layout/ScrollToTop.jsx";
+import ScrollToTop from "./components/layout/ScrollToTop.jsx";
 
 export default function App() {
   useEffect(() => {
@@ -24,6 +26,7 @@ export default function App() {
   return (
     <RunProvider>
       <BrowserRouter>
+      <ScrollToTop />
         <Navbar />
         <div className="app-container">
           <Routes>
