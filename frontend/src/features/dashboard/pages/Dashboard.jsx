@@ -64,7 +64,7 @@ export default function Dashboard() {
   ];
 
   return (
-    <div className="dashboard">
+    <div className="page">
       {runToDisplay ? (
         <RunCard title="Most Recent Run"
           run={{

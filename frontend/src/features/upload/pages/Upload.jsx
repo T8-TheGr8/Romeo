@@ -18,7 +18,7 @@ export default function Upload() {
 
   return (
     <div>
-      <Card className="upload-form" sunken="false">
+      <Card sunken="false">
         <form className="upload-form" onSubmit={handleSubmit}>
           <RunInput
             label="Distance (mi)"

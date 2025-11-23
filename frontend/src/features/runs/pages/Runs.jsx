@@ -5,7 +5,6 @@ import RunCard from "../components/RunCard";
 import FilterBar from "../components/FilterBar";
 import LoadMoreTrigger from "../components/LoadMoreTrigger";
 import { formatPace } from "@/utils/formatPace";
-import "../styles/Runs.css";
 
 export default function Runs() {
   const navigate = useNavigate();
@@ -43,7 +42,7 @@ export default function Runs() {
           a.duration && a.distance ? a.duration / a.distance : Infinity;
         const paceB =
           b.duration && b.distance ? b.duration / b.distance : Infinity;
-        return paceA - paceB; 
+        return paceA - paceB;
       }
       return 0;
     });
@@ -64,8 +63,7 @@ export default function Runs() {
   }, []);
 
   return (
-    <div className="runs-page">
-
+    <div className="page">
       <FilterBar
         search={search}
         setSearch={setSearch}
@@ -73,18 +71,16 @@ export default function Runs() {
         setSort={setSort}
       />
 
-      <div className="runs-list">
-        {visibleRuns.map((run) => (
-          <RunCard
-            key={run._id}
-            run={{
-              ...run,
-              pace: formatPace(run.duration, run.distance),
-            }}
-            onClick={() => navigate(`/runs/${run._id}`)}
-          />
-        ))}
-      </div>
+      {visibleRuns.map((run) => (
+        <RunCard
+          key={run._id}
+          run={{
+            ...run,
+            pace: formatPace(run.duration, run.distance),
+          }}
+          onClick={() => navigate(`/runs/${run._id}`)}
+        />
+      ))}
 
       <LoadMoreTrigger triggerRef={triggerRef} />
     </div>

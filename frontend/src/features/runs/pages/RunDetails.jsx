@@ -1,14 +1,13 @@
 import { useParams, useNavigate, Link } from "react-router-dom";
 import { useState } from "react"; 
 import { useRunContext } from "@/context/RunContext";
-import RunMap from "../components/RunMap";
 import { formatDate } from "@/utils/formatDate";
 import { formatTime } from "@/utils/formatTime";
 import { formatPace } from "@/utils/formatPace";
 import SplitChart from "../components/SplitChart"; 
 import Card from "@/components/ui/Card.jsx"; 
-import "../styles/RunDetails.css";
 import Button from "@/components/ui/Button.jsx"; 
+import RunMap from "../components/RunMap";
 
 export default function RunDetails() {
   const { id } = useParams();
@@ -20,7 +19,7 @@ export default function RunDetails() {
 
   if (!run) {
     return (
-      <div className="run-details-page">
+      <div className="page">
         <button className="btn" onClick={() => navigate(-1)}>
           ← Back
         </button>
@@ -29,13 +28,8 @@ export default function RunDetails() {
     );
   }
 
-  const openEdit = () => {
-    setEdit(true); 
-    console.log("Click");
-  }
-
   return (
-    <div className="run-details-page">
+    <div className="page">
       <button className="btn" onClick={() => navigate(-1)}>
         ← Back to Runs
       </button>
@@ -80,9 +74,9 @@ export default function RunDetails() {
       </Card>
 
       {!run.route || run.route.length === 0 ? (
-        <div className="no-gps card">
+        <Card>
           <p>GPS data not available for this run.</p>
-        </div>
+        </Card>
       ) : (
         <>
           <div className="run-map">

@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react"; 
 import Card from "@/components/ui/Card.jsx";
 import RunMap from "@/features/runs/components/RunMap.jsx"; 
+import SplitChart from "@/features/runs/components/SplitChart.jsx"; 
 
 export default function EditRun () {
   const { id } = useParams(); 
@@ -30,9 +31,26 @@ export default function EditRun () {
   if (!run) return <Card>Run not found</Card>;
 
   return (
-    <div>
+    <div className="page">
       <Card title="Edit Run" sunken="false"></Card>
-      <RunMap route={run.route} />
+      {!run.route || run.route.length === 0 ? (
+        <Card>
+          <p>GPS data not available for this run.</p>
+        </Card>
+      ) : (
+        <>
+          <div className="run-map">
+            <RunMap route={run.route} />
+          </div>
+        </>
+      )}
+      {!run.route || run.route.length === 0 ? (
+        <Card>
+          <span>Split chart not available for this run</span>
+        </Card>
+      ) : (
+        <SplitChart run={run} />
+      )}
     </div>
   );
 }

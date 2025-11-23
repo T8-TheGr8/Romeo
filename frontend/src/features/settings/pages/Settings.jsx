@@ -1,7 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import ThemeToggle from "../components/ThemeToggle";
 import Card from "@/components/ui/Card";
-import "../styles/Settings.css";
 
 export default function Settings() {
   const navigate = useNavigate();
@@ -16,7 +15,7 @@ export default function Settings() {
   };
 
   return (
-    <div className="settings-page">
+    <div className="page">
         <Card title="Data Management" layout="column">
           <div>
             <p>

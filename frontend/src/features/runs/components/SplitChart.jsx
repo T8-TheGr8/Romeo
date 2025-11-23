@@ -9,9 +9,6 @@ export default function SplitChart({ run }) {
   const MIN_SPEED = 1; // m/s (2.2mph)
   const splits = [];
 
-  console.log(run.route[0].time);
-  console.log(run.route[1]["lat"]);
-
   if (run.route && run.distance > 1) {
     let splitStartTime = run.route[0].time;
     for (let i = 0; i < run.route.length - 1; i++) {
@@ -43,9 +40,6 @@ export default function SplitChart({ run }) {
   } else if (run.distance <= 1) {
     splits.push([run.duration, run.distance]);
   }
-
-  const originalTime = splits[splits.length - 1][0]; 
-  const originalDistance = splits[splits.length - 1][1]; 
 
   splits[splits.length - 1][0] = splits[splits.length - 1][0] / splits[splits.length - 1][1] * (run.distance - (splits.length - 1)); 
   splits[splits.length - 1][1] = (run.distance - (splits.length - 1)); 
