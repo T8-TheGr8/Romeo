@@ -20,7 +20,6 @@ export default function Upload() {
     <div>
       <Card className="upload-form" sunken="false">
         <form className="upload-form" onSubmit={handleSubmit}>
-          {/* Manual fields (required only if no gpx file uploaded) */}
           <RunInput
             label="Distance (mi)"
             type="number"
