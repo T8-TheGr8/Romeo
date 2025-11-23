@@ -42,4 +42,18 @@ router.delete("/:id", async (req, res) => {
   }
 });
 
+router.get("/:id", async (req, res) => {
+  try {
+    const run = await Run.findById(req.params.id);
+
+    if (!run) {
+      return res.status(404).json({ message: "Run not found"});
+    }
+
+    res.json(run); 
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
 export default router;

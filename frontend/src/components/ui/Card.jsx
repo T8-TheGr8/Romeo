@@ -4,6 +4,7 @@ import "../styles/Card.css";
 export default function Card({
   title,
   children,
+  action,
   className = "",
   onClick,
   variant = "default",
@@ -28,7 +29,12 @@ export default function Card({
 
   return (
     <div className={classes} onClick={onClick}>
-      {title && <h1 className="card-title">{title}</h1>}
+      {title && (
+        <div className="card-header">
+          <h1 className="card-title">{title}</h1>
+          {action && <div>{action}</div>}
+        </div>
+      )}
       <div className={`card-content ${sink}`}>{children}</div>
     </div>
   );

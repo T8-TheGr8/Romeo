@@ -1,4 +1,5 @@
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
+import { useState } from "react"; 
 import { useRunContext } from "@/context/RunContext";
 import RunMap from "../components/RunMap";
 import { formatDate } from "@/utils/formatDate";
@@ -7,6 +8,7 @@ import { formatPace } from "@/utils/formatPace";
 import SplitChart from "../components/SplitChart"; 
 import Card from "@/components/ui/Card.jsx"; 
 import "../styles/RunDetails.css";
+import Button from "@/components/ui/Button.jsx"; 
 
 export default function RunDetails() {
   const { id } = useParams();
@@ -14,6 +16,7 @@ export default function RunDetails() {
   const { runs } = useRunContext();
   const { deleteRun } = useRunContext(); 
   const run = runs.find((r) => r._id === id);
+  const [edit, setEdit] = useState(false); 
 
   if (!run) {
     return (
@@ -26,13 +29,25 @@ export default function RunDetails() {
     );
   }
 
+  const openEdit = () => {
+    setEdit(true); 
+    console.log("Click");
+  }
+
   return (
     <div className="run-details-page">
       <button className="btn" onClick={() => navigate(-1)}>
         ← Back to Runs
       </button>
 
-      <Card title="Run Details">
+      <Card
+        title="Run Details"
+        action={
+          <Link to={`/edit/${run._id}`}>
+            <Button />
+          </Link>
+        }
+      >
         <div>
           {run.name && (
             <p>

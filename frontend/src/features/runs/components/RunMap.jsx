@@ -1,10 +1,4 @@
-import {
-  MapContainer,
-  TileLayer,
-  Polyline,
-  Marker,
-  useMap,
-} from "react-leaflet";
+import { MapContainer, TileLayer, Polyline, Marker, useMap } from "react-leaflet";
 import L from "leaflet";
 import { useEffect, useRef } from "react";
 import "../styles/RunMap.css";
