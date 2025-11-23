@@ -17,8 +17,8 @@ export default function Upload() {
   } = useUploadForm();
 
   return (
-    <div>
-      <Card sunken="false">
+    <div className="page">
+      <Card sunken="false" title="Manual Upload">
         <form className="upload-form" onSubmit={handleSubmit}>
           <RunInput
             label="Distance (mi)"

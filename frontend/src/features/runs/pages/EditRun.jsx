@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import Card from "@/components/ui/Card.jsx";
 import RunMap from "@/features/runs/components/RunMap.jsx"; 
 import SplitChart from "@/features/runs/components/SplitChart.jsx"; 
+import RunInput from "@/features/upload/components/RunInput.jsx"; 
 
 export default function EditRun () {
   const { id } = useParams(); 
@@ -32,7 +33,9 @@ export default function EditRun () {
 
   return (
     <div className="page">
-      <Card title="Edit Run" sunken="false"></Card>
+      <Card title="Edit Run" sunken="false">
+        <RunInput />
+      </Card>
       {!run.route || run.route.length === 0 ? (
         <Card>
           <p>GPS data not available for this run.</p>

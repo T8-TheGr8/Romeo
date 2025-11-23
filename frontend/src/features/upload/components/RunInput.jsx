@@ -1,5 +1,7 @@
 import "../styles/RunInput.css";
 
+// TODO: CSS bug - hover effects run when cursor slightly above object
+
 export default function RunInput({
   label,
   type = "text",
@@ -13,7 +15,7 @@ export default function RunInput({
 }) {
   return (
     <div className="run-input-group">
-      <label htmlFor={name} className="run-input-label">
+      <label htmlFor={name}>
         {label}
       </label>
 
@@ -24,7 +26,7 @@ export default function RunInput({
           value={value}
           onChange={onChange}
           required={required}
-          className="run-input-field sunken"
+          className="sunken user-input"
         >
           <option value="">Select...</option>
           {options.map((opt) => (
@@ -41,7 +43,7 @@ export default function RunInput({
           onChange={onChange}
           rows="3"
           required={required}
-          className="run-input-field sunken"
+          className="sunken user-input"
           placeholder="How did it feel?"
         />
       ) : (
@@ -53,7 +55,7 @@ export default function RunInput({
           onChange={onChange}
           required={required}
           accept={accept}
-          className="run-input-field sunken"
+          className="sunken user-input"
         />
       )}
     </div>
