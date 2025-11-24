@@ -12,13 +12,13 @@ export function useUploadForm() {
   const [formData, setFormData] = useState({
     name: "",
     distance: "",
-    duration: "", // numeric seconds (GPX or manual)
+    duration: "", 
     date: "",
     type: "",
     notes: "",
     file: null,
     route: null,
-    elapsedTime: "", // optional, for GPX uploads
+    elapsedTime: "", 
   });
 
   const [showModal, setShowModal] = useState(false);
@@ -42,7 +42,7 @@ export function useUploadForm() {
       ...prev,
       file,
       distance: parsed.distanceMi?.toFixed(2) || "",
-      duration: Number(parsed.movingTime) || 0, // ✅ numeric seconds
+      duration: Number(parsed.movingTime) || 0, 
       date: parsed.date || "",
       route: parsed.route,
       elapsedTime: Number(parsed.elapsedTime) || 0,
@@ -56,13 +56,11 @@ export function useUploadForm() {
 
     const distanceNum = parseFloat(formData.distance) || 0;
 
-    // ✅ Convert duration string (HH:MM:SS) → seconds if needed
     const durationSeconds =
       typeof formData.duration === "string"
         ? parseDurationToSeconds(formData.duration)
         : Number(formData.duration) || 0;
 
-    // ✅ Default elapsedTime to duration if not provided
     const elapsedTime =
       formData.elapsedTime && Number(formData.elapsedTime) > 0
         ? Number(formData.elapsedTime)
@@ -73,7 +71,7 @@ export function useUploadForm() {
       name: defaultName,
       date: formData.date,
       distance: distanceNum,
-      duration: durationSeconds, // ✅ always numeric
+      duration: durationSeconds,
       elapsedTime,
       notes: formData.notes,
       type: formData.type,

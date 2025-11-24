@@ -20,7 +20,7 @@ export default function RunDetails() {
   if (!run) {
     return (
       <div className="page">
-        <button className="btn" onClick={() => navigate(-1)}>
+        <button className="btn" onClick={() => navigate('/runs')}>
           ← Back
         </button>
         <p>Run not found.</p>
@@ -30,7 +30,7 @@ export default function RunDetails() {
 
   return (
     <div className="page">
-      <button className="btn" onClick={() => navigate(-1)}>
+      <button className="btn" onClick={() => navigate('/runs')}>
         ← Back to Runs
       </button>
 

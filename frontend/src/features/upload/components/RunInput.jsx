@@ -10,7 +10,9 @@ export default function RunInput({
   options = [],
   accept,
   multiline = false,
+  placeholder = ""
 }) {
+
   return (
     <div className="run-input-group">
       <label htmlFor={name}>
@@ -42,7 +44,7 @@ export default function RunInput({
           rows="3"
           required={required}
           className="sunken user-input"
-          placeholder="How did it feel?"
+          placeholder={placeholder}
         />
       ) : (
         <input
@@ -54,6 +56,7 @@ export default function RunInput({
           required={required}
           accept={accept}
           className="sunken user-input"
+          placeholder={placeholder}
         />
       )}
     </div>

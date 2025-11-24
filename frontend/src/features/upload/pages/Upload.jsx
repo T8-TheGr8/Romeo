@@ -61,9 +61,9 @@ export default function Upload() {
             multiline
             value={formData.notes}
             onChange={handleChange}
+            placeholder="How did it go?" 
           />
 
-          {/* GPX Upload */}
           <RunInput
             label="Or, upload a GPX file"
             type="file"

@@ -56,4 +56,20 @@ router.get("/:id", async (req, res) => {
   }
 });
 
+router.put("/:id", async (req, res) => {
+  try {
+    const updatedRun = await Run.findByIdAndUpdate(req.params.id, 
+      {
+        name: req.body.name, 
+        notes: req.body.notes
+      }, 
+      { new: true }
+    );
+
+    res.json(updatedRun); 
+  } catch (err) {
+    res.status(500).json({ error: "Failed to update run"});
+  }
+});
+
 export default router;

@@ -66,8 +66,14 @@ export function RunProvider({ children }) {
     }
   };
 
+  const updateRun = (updatedRun) => {
+    setRuns((prev) =>
+      prev.map((r) => (r._id === updatedRun._id ? updatedRun : r))
+    );
+  };
+
   return (
-    <RunContext.Provider value={{ runs, addRun, deleteRun, loading }}>
+    <RunContext.Provider value={{ runs, addRun, deleteRun, updateRun, loading }}>
       {children}
     </RunContext.Provider>
   );
