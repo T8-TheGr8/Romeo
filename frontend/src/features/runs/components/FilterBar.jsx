@@ -9,11 +9,11 @@ export default function FilterBar({ search, setSearch, sort, setSort }) {
         placeholder="Search runs..."
         value={search}
         onChange={(e) => setSearch(e.target.value)}
-        className="filter-input sunken"
+        className="user-input sunken"
       />
 
       <select
-        className="filter-select"
+        className="user-input sunken"
         value={sort}
         onChange={(e) => setSort(e.target.value)}
       >
