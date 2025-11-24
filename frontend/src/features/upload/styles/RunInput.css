@@ -3,3 +3,7 @@
   flex-direction: column;
   gap: 0.3rem;
 }
+
+.run-input-group label {
+  pointer-events: none; 
+}

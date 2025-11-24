@@ -2,7 +2,6 @@ import Modal from "@/components/ui/Modal";
 import RunInput from "../components/RunInput";
 import Card from "@/components/ui/Card";
 import { useUploadForm } from "../hooks/useUploadForm";
-import "../styles/Upload.css";
 
 export default function Upload() {
   const {
@@ -19,7 +18,7 @@ export default function Upload() {
   return (
     <div className="page">
       <Card sunken="false" title="Manual Upload">
-        <form className="upload-form" onSubmit={handleSubmit}>
+        <form class="space-between" onSubmit={handleSubmit}>
           <RunInput
             label="Distance (mi)"
             type="number"

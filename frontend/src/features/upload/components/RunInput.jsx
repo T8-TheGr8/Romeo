@@ -1,7 +1,5 @@
 import "../styles/RunInput.css";
 
-// TODO: CSS bug - hover effects run when cursor slightly above object
-
 export default function RunInput({
   label,
   type = "text",
