@@ -10,7 +10,7 @@ export function RunProvider({ children }) {
   useEffect(() => {
     const fetchRuns = async () => {
       try {
-        const res = await fetch(API_URL);
+        const res = await fetch(`${API_URL}/api/runs`);
         if (!res.ok) throw new Error(`HTTP error! Status: ${res.status}`);
         const data = await res.json();
         setRuns(data);
@@ -26,7 +26,7 @@ export function RunProvider({ children }) {
 
   const addRun = async (runData) => {
     try {
-      const res = await fetch(API_URL, {
+      const res = await fetch(`${API_URL}/api/runs`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(runData),
@@ -46,7 +46,7 @@ export function RunProvider({ children }) {
 
   const deleteRun = async (id, password) => {
     try {
-      const res = await fetch(`${API_URL}/${id}`, {
+      const res = await fetch(`${API_URL}/api/runs/${id}`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
