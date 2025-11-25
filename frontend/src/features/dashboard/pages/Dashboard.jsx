@@ -8,6 +8,7 @@ import RunCard from "@/features/runs/components/RunCard.jsx";
 import WeeklySummary from "@/features/dashboard/components/WeeklySummary.jsx";
 import WeeklyMileageChart from "../components/WeeklyMileageChart.jsx";
 import AchievementsPanel from "../components/AchievementsPanel.jsx";
+import PageTransition from "@/components/layout/PageTransition.jsx";
 import "../styles/Dashboard.css";
 
 export default function Dashboard() {
@@ -64,27 +65,30 @@ export default function Dashboard() {
   ];
 
   return (
-    <div className="page">
-      {runToDisplay ? (
-        <RunCard title="Most Recent Run"
-          run={{
-            ...runToDisplay,
-            pace: formatPace(runToDisplay.duration, runToDisplay.distance),
-          }}
-          onClick={() =>
-            runToDisplay.id !== "demo-run" &&
-            navigate(`/runs/${runToDisplay._id}`)
-          }
+    <PageTransition>
+      <div className="page">
+        {runToDisplay ? (
+          <RunCard
+            title="Most Recent Run"
+            run={{
+              ...runToDisplay,
+              pace: formatPace(runToDisplay.duration, runToDisplay.distance),
+            }}
+            onClick={() =>
+              runToDisplay.id !== "demo-run" &&
+              navigate(`/runs/${runToDisplay._id}`)
+            }
+          />
+        ) : (
+          <p className="no-runs">Loading demo run...</p>
+        )}
+        <WeeklySummary stats={weeklyStats} />
+        <WeeklyMileageChart data={weeklyMileage} />
+        <AchievementsPanel
+          achievements={achievements}
+          onSelect={(ach) => alert(`Selected Achievement: ${ach.name}`)}
         />
-      ) : (
-        <p className="no-runs">Loading demo run...</p>
-      )}
-      <WeeklySummary stats={weeklyStats} />
-      <WeeklyMileageChart data={weeklyMileage} />
-      <AchievementsPanel
-        achievements={achievements}
-        onSelect={(ach) => alert(`Selected Achievement: ${ach.name}`)}
-      />
-    </div>
+      </div>
+    </PageTransition>
   );
 }

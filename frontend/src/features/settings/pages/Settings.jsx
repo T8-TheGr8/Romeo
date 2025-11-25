@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import ThemeToggle from "../components/ThemeToggle";
 import Card from "@/components/ui/Card";
+import PageTransition from "@/components/layout/PageTransition.jsx";
 
 export default function Settings() {
   const navigate = useNavigate();
@@ -15,7 +16,8 @@ export default function Settings() {
   };
 
   return (
-    <div className="page">
+    <PageTransition>
+      <div className="page">
         <Card title="Data Management" layout="column">
           <div>
             <p>
@@ -34,6 +36,7 @@ export default function Settings() {
           </div>
           <ThemeToggle />
         </Card>
-    </div>
+      </div>
+    </PageTransition>
   );
 }

@@ -5,6 +5,7 @@ import RunCard from "../components/RunCard";
 import FilterBar from "../components/FilterBar";
 import LoadMoreTrigger from "../components/LoadMoreTrigger";
 import { formatPace } from "@/utils/formatPace";
+import PageTransition from "@/components/layout/PageTransition.jsx";
 
 export default function Runs() {
   const navigate = useNavigate();
@@ -63,26 +64,28 @@ export default function Runs() {
   }, []);
 
   return (
-    <div className="page">
-      <FilterBar
-        search={search}
-        setSearch={setSearch}
-        sort={sort}
-        setSort={setSort}
-      />
-
-      {visibleRuns.map((run) => (
-        <RunCard
-          key={run._id}
-          run={{
-            ...run,
-            pace: formatPace(run.duration, run.distance),
-          }}
-          onClick={() => navigate(`/runs/${run._id}`)}
+    <PageTransition>
+      <div className="page">
+        <FilterBar
+          search={search}
+          setSearch={setSearch}
+          sort={sort}
+          setSort={setSort}
         />
-      ))}
 
-      <LoadMoreTrigger triggerRef={triggerRef} />
-    </div>
+        {visibleRuns.map((run) => (
+          <RunCard
+            key={run._id}
+            run={{
+              ...run,
+              pace: formatPace(run.duration, run.distance),
+            }}
+            onClick={() => navigate(`/runs/${run._id}`)}
+          />
+        ))}
+
+        <LoadMoreTrigger triggerRef={triggerRef} />
+      </div>
+    </PageTransition>
   );
 }
