@@ -1,33 +1,51 @@
 export const getWeeklyMilage = (runs) => {
-  if (!runs || runs.length === 0) return [];
+    if (!runs || runs.length === 0) return [];
 
-  const sorted = [...runs].sort((a, b) => new Date(a.date) - new Date(b.date));
+    const sorted = [...runs].sort(
+      (a, b) => new Date(a.date) - new Date(b.date)
+    );
 
-  const weeks = new Map();
+    const getWeekStart = (date) => {
+      const d = new Date(date);
+      const day = d.getDay();
+      const diff = d.getDate() - day + (day === 0 ? -6 : 1);
+      d.setDate(diff);
+      d.setHours(0, 0, 0, 0);
+      return new Date(d);
+    };
 
-  sorted.forEach((run) => {
-    const date = new Date(run.date);
+    const firstWeek = getWeekStart(sorted[0].date);
+    const lastWeek = getWeekStart(new Date());
 
-    const monday = new Date(date);
-    const day = monday.getDay();
-    const diff = monday.getDate() - day + (day === 0 ? -6 : 1);
-    monday.setDate(diff);
-    monday.setHours(0, 0, 0, 0);
+    const allWeeks = [];
+    let current = new Date(firstWeek);
 
-    const key = monday.toISOString();
+    while (current <= lastWeek) {
+      allWeeks.push(new Date(current));
+      current.setDate(current.getDate() + 7);
+    }
 
-    const miles = run.distance
-    weeks.set(key, (weeks.get(key) || 0) + miles);
-  });
+    const mileageMap = new Map();
 
-
-  return [...weeks.entries()].map(([weekStart, miles]) => {
-    const d = new Date(weekStart);
-    const label = d.toLocaleDateString("en-US", {
-      month: "short",
-      day: "numeric",
+    sorted.forEach((run) => {
+      const weekStart = getWeekStart(run.date).toISOString();
+      const miles = run.distance || 0;
+      mileageMap.set(weekStart, (mileageMap.get(weekStart) || 0) + miles);
     });
-    console.log(label, miles); 
-    return { label, miles };
-  });
+
+    const result = allWeeks.map((weekDate) => {
+      const key = weekDate.toISOString();
+      const miles = mileageMap.get(key) || 0;
+
+      return {
+        startDate: key,
+        label: weekDate.toLocaleDateString("en-US", {
+          month: "short",
+          day: "numeric",
+        }),
+        miles,
+      };
+    });
+
+    return result;
 }
