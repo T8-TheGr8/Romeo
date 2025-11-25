@@ -1,9 +1,11 @@
 import Card from "@/components/ui/Card";
 import { getWeeklyMilage } from "@/utils/getWeeklyMileage.js";
+import { useNavigate } from "react-router-dom"; 
 import "../styles/WeeklyMileageChart.css";
 
 export default function WeeklyMileageChart({ data }) {
   const weeklyData = getWeeklyMilage(data);
+  const navigate = useNavigate(); 
 
   const maxMiles = weeklyData.length
     ? Math.max(...weeklyData.map((w) => w.miles))
@@ -32,6 +34,7 @@ export default function WeeklyMileageChart({ data }) {
                 className="chart-bar"
                 data-miles={`${week.miles.toFixed(2)} mi`}
                 style={{ height: `${week.miles * 3 + 5}px` }}
+                onClick={()=> navigate(`/api/dashboard/weeklySummary/${week.startDate}`)}
               />
             </div>
           ))}
