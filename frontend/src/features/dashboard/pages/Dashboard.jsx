@@ -50,14 +50,6 @@ export default function Dashboard() {
 
   const weeklyStats = useWeeklyStats();
 
-  const weeklyMileage = [
-    { label: "W1", miles: 32 },
-    { label: "W2", miles: 41 },
-    { label: "W3", miles: 50 },
-    { label: "W4", miles: 45 },
-    { label: "W5", miles: 47 },
-  ];
-
   const achievements = [
     { name: "Fastest 10K", date: "Oct 10, 2025", runId: 1 },
     { name: "Longest Run", date: "Sep 30, 2025", runId: 2 },
@@ -83,7 +75,7 @@ export default function Dashboard() {
           <p className="no-runs">Loading demo run...</p>
         )}
         <WeeklySummary stats={weeklyStats} />
-        <WeeklyMileageChart data={weeklyMileage} />
+        <WeeklyMileageChart data={runs} />
         <AchievementsPanel
           achievements={achievements}
           onSelect={(ach) => alert(`Selected Achievement: ${ach.name}`)}

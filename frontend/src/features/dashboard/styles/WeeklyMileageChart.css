@@ -30,3 +30,35 @@
   margin-top: 0.4rem;
   color: var(--text-muted);
 }
+
+.chart-wrapper {
+  position: relative;
+  padding: 1.5rem 2rem 2rem 2.5rem;
+}
+
+.y-axis-title {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%) rotate(-90deg);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.x-axis-title {
+  text-align: center;
+  margin-top: 0.5rem;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.chart-container {
+  display: flex;
+  align-items: flex-end;
+  gap: 1.25rem;
+  height: 200px;
+  border-left: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 8px;
+  padding-left: 8px;
+}
