@@ -53,7 +53,7 @@ export default function EditRun() {
 
       const updated = await res.json();
       updateRun(updated);
-      if (res.ok) navigate(`/runs/${run._id}`);
+      if (res.ok) navigate(`api/runs/${run._id}`);
     } catch (err) {
       console.error("Failed to save: ", err);
     }
