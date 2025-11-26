@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";
 import runRoutes from "./routes/runs.js";
+import dashboardRoutes from "./routes/dashboard.js"; 
 import dotenv from "dotenv"; 
 import mongoose from "mongoose"; 
 
@@ -28,5 +29,6 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/runs", runRoutes);
+app.use("/api/dashboard", dashboardRoutes); 
 
 export default app;
