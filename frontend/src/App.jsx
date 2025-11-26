@@ -8,6 +8,7 @@ import RunDetails from "@/features/runs/pages/RunDetails.jsx";
 import Upload from "@/features/upload/pages/Upload.jsx";
 import Settings from "@/features/settings/pages/Settings.jsx";
 import EditRun from "@/features/runs/pages/EditRun.jsx";
+import WeeklySummaryPage from "@/features/dashboard/pages/WeeklySummaryPage.jsx"; 
 import "./styles/App.css";
 import "./components/layout/ScrollToTop.jsx";
 import ScrollToTop from "./components/layout/ScrollToTop.jsx";
@@ -39,6 +40,7 @@ export default function App() {
               <Route path="/settings" element={<Settings />} />
               <Route path="/runs/:id" element={<RunDetails />} />
               <Route path="/edit/:id" element={<EditRun />} />
+              <Route path="/dashboard/weeklySummary/:date" element={<WeeklySummaryPage />} />
             </Routes>
           </AnimatePresence>
         </div>

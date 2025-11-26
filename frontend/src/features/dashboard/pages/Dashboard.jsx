@@ -74,7 +74,7 @@ export default function Dashboard() {
         ) : (
           <p className="no-runs">Loading demo run...</p>
         )}
-        <WeeklySummary stats={weeklyStats} />
+        <WeeklySummary stats={weeklyStats} clickable={true} />
         <WeeklyMileageChart data={runs} />
         <AchievementsPanel
           achievements={achievements}

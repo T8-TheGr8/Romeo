@@ -4,7 +4,10 @@ Parameters: isoDate - date string in ISO format
 Returns: formatted date string (weekday, Mon DD, YYYY)
 */
 export const formatDate = (isoDate) => {
-  const date = new Date(isoDate);
+  if (!isoDate) return ""; 
+  const [y, m, d] = isoDate.split("-").map(Number);
+  const date = new Date(y, m - 1, d); 
+
   const now = new Date();
 
   const diffDays = Math.floor((now - date) / (1000 * 60 * 60 * 24));
