@@ -34,7 +34,11 @@ export default function WeeklyMileageChart({ data }) {
                 className="chart-bar"
                 data-miles={`${week.miles.toFixed(2)} mi`}
                 style={{ height: `${week.miles * 3 + 5}px` }}
-                onClick={()=> navigate(`/api/dashboard/weeklySummary/${week.startDate}`)}
+                onClick={() =>
+                  navigate(
+                    `/dashboard/weeklySummary/${week.startDate.split("T")[0]}`
+                  )
+                }
               />
             </div>
           ))}
