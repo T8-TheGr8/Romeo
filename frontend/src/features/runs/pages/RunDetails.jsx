@@ -32,8 +32,8 @@ export default function RunDetails() {
   return (
     <PageTransition>
       <div className="page">
-        <button className="btn" onClick={() => navigate("/runs")}>
-          ← Back to Runs
+        <button className="btn" onClick={() => navigate(-1)}>
+          ← Back
         </button>
 
         <Card
