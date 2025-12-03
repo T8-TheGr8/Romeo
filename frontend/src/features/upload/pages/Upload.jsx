@@ -54,7 +54,7 @@ export default function Upload() {
               name="type"
               value={formData.type}
               onChange={handleChange}
-              options={["tempo", "long", "recovery", "race"]}
+              options={["Long Run", "Race", "Workout", "Tempo", "Interval", "Easy", "Recovery", "Warmup", "Cooldown"]}
             />
 
             <RunInput
