@@ -10,8 +10,7 @@ export default function WeeklySummary({ stats, title="This Week's Summary", clic
   today.setHours(0, 0, 0, 0); 
   const distance = (day + 6) % 7; 
 
-  today.setDate(today.getDate() - distance); 
-  console.log(today.toISOString().split("T")[0]); 
+  today.setDate(today.getDate() - distance);  
   return (
     <Card
       title={title}

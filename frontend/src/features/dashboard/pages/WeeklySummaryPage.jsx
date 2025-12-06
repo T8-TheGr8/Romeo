@@ -6,6 +6,7 @@ import { formatPace } from "@/utils/formatPace.js";
 import { formatDate } from "@/utils/formatDate.js"; 
 import RunCard from "@/features/runs/components/RunCard.jsx";
 
+
 export default function WeeklySummaryPage() {
   const [stats, setStats] = useState(null); 
   const [weekInfo, setWeekInfo] = useState(null); 
@@ -25,16 +26,24 @@ export default function WeeklySummaryPage() {
       ];
     }
     const totalMiles = runs.reduce((sum, r) => sum + (r.distance || 0), 0);
-    const avgPaceSec =
-      runs.reduce((sum, r) => sum + (r.avgPaceSec || 0), 0) / runs.length;
     const longestRun = Math.max(...runs.map((r) => r.distance || 0));
+    const avgPaceSec = getSecondsRan(runs);
 
     return [
       { label: "Miles", value: totalMiles.toFixed(1) },
       { label: "Runs", value: runs.length },
-      { label: "Avg Pace", value: formatPace(avgPaceSec) },
+      { label: "Avg Pace", value: formatPace(avgPaceSec, totalMiles) },
       { label: "Longest Run", value: `${longestRun.toFixed(1)} mi` },
     ];
+  }
+
+  function getSecondsRan(runs) {
+    let totalSeconds = 0; 
+
+    for (const i in runs) {
+      totalSeconds += runs[i].duration;
+    }
+    return totalSeconds; 
   }
 
   useEffect(() => {
@@ -43,14 +52,17 @@ export default function WeeklySummaryPage() {
         const res = await fetch(`${API_URL}/api/dashboard/weeklySummary/${date}`);
         const data = await res.json(); 
     
+        const correctedEnd = new Date(data.weekEnd); 
+        correctedEnd.setDate(correctedEnd.getDate() - 1); 
+
         setWeekInfo( {
           weekStart: data.weekStart, 
-          weekEnd: data.weekEnd
+          weekEnd: correctedEnd.toISOString().split("T")[0],
         })
+
 
         setRuns(data.runs); 
 
-        const newDate = new Date(date);
         setStats(computeWeeklyStats(data.runs)); 
       } catch (err) {
         console.error("Error fetching weekly summary: ", err); 
@@ -61,15 +73,34 @@ export default function WeeklySummaryPage() {
   }, [date]);
 
   if (stats === null) {
-    return <Card title="Loading...">Shouldn't take longer than 10 seconds</Card>
+    return (
+      <div className="page">
+        <button className="btn" onClick={() => navigate(-1)}>
+          ← Back
+        </button>
+        <Card title="Loading...">Shouldn't take longer than 10 seconds</Card>
+      </div>
+    );
   }
 
   return (
     <div className="page">
-      <WeeklySummary stats={stats} title={`Week of: ${formatDate(weekInfo.weekStart)} to ${formatDate(weekInfo.weekEnd)}`} />
-      {stats[1].value ? runs.map(run => (
-        <RunCard run={run} onClick={() => navigate(`/runs/${run._id}`)}/>
-      )) : <Card title="No Runs So Far">There's still time!</Card>}
+      <button className="btn" onClick={() => navigate(-1)}>
+        ← Back
+      </button>
+      <WeeklySummary
+        stats={stats}
+        title={`Week of: ${formatDate(weekInfo.weekStart)} to ${formatDate(
+          weekInfo.weekEnd
+        )}`}
+      />
+      {stats[1].value ? (
+        runs.map((run) => (
+          <RunCard run={run} onClick={() => navigate(`/runs/${run._id}`)} />
+        ))
+      ) : (
+        <Card title="No Runs So Far">There's still time!</Card>
+      )}
     </div>
-  )
+  );
 }
