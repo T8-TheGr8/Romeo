@@ -9,7 +9,6 @@ import Upload from "@/features/upload/pages/Upload.jsx";
 import Settings from "@/features/settings/pages/Settings.jsx";
 import EditRun from "@/features/runs/pages/EditRun.jsx";
 import WeeklySummaryPage from "@/features/dashboard/pages/WeeklySummaryPage.jsx";
-import SideProject from "@/features/sideProject/pages/SideProject.jsx";
 import "./styles/App.css";
 import "./components/layout/ScrollToTop.jsx";
 import ScrollToTop from "./components/layout/ScrollToTop.jsx";
@@ -47,7 +46,6 @@ export default function App() {
                 path="/dashboard/weeklySummary/:date"
                 element={<WeeklySummaryPage />}
               />
-              <Route path="/sideProject" element={<SideProject />} />
             </Routes>
           </AnimatePresence>
         </div>
