@@ -2,6 +2,7 @@
   font-family: "JetBrains Mono", "Fira Code", monospace;
   display: inline-flex;
   white-space: pre;
+  flex-wrap: wrap; 
 }
 
 .scramble-char {
