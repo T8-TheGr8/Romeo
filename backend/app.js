@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import runRoutes from "./routes/runs.js";
 import dashboardRoutes from "./routes/dashboard.js"; 
+import passwordRoutes from "./routes/passwords.js";
 import dotenv from "dotenv"; 
 import mongoose from "mongoose"; 
 
@@ -25,10 +26,11 @@ mongoose
   .catch((err) => console.error("MongoDB connection error:", err));
 
 app.get("/", (req, res) => {
-  res.send("Server is running 🚀");
+  res.send("Server is running");
 });
 
 app.use("/api/runs", runRoutes);
 app.use("/api/dashboard", dashboardRoutes); 
+app.use("/api/passwords", passwordRoutes);
 
 export default app;

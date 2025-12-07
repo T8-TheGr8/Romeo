@@ -8,7 +8,8 @@ import RunDetails from "@/features/runs/pages/RunDetails.jsx";
 import Upload from "@/features/upload/pages/Upload.jsx";
 import Settings from "@/features/settings/pages/Settings.jsx";
 import EditRun from "@/features/runs/pages/EditRun.jsx";
-import WeeklySummaryPage from "@/features/dashboard/pages/WeeklySummaryPage.jsx"; 
+import WeeklySummaryPage from "@/features/dashboard/pages/WeeklySummaryPage.jsx";
+import SideProject from "@/features/sideProject/pages/SideProject.jsx";
 import "./styles/App.css";
 import "./components/layout/ScrollToTop.jsx";
 import ScrollToTop from "./components/layout/ScrollToTop.jsx";
@@ -26,11 +27,13 @@ export default function App() {
     }
   }, []);
 
-  return (
-    <RunProvider>
-      <BrowserRouter>
-        <ScrollToTop />
-        <Navbar />
+  function Layout() {
+    const location = useLocation();
+    const hideNavbar = location.pathname.startsWith("/sideProject");
+
+    return (
+      <>
+        {!hideNavbar && <Navbar />}
         <div className="app-container">
           <AnimatePresence mode="wait">
             <Routes>
@@ -40,10 +43,23 @@ export default function App() {
               <Route path="/settings" element={<Settings />} />
               <Route path="/runs/:id" element={<RunDetails />} />
               <Route path="/edit/:id" element={<EditRun />} />
-              <Route path="/dashboard/weeklySummary/:date" element={<WeeklySummaryPage />} />
+              <Route
+                path="/dashboard/weeklySummary/:date"
+                element={<WeeklySummaryPage />}
+              />
+              <Route path="/sideProject" element={<SideProject />} />
             </Routes>
           </AnimatePresence>
         </div>
+      </>
+    );
+  }
+
+  return (
+    <RunProvider>
+      <BrowserRouter>
+        <ScrollToTop />
+        <Layout />
       </BrowserRouter>
     </RunProvider>
   );
