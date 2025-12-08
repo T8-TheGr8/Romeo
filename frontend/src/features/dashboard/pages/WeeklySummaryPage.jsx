@@ -14,7 +14,7 @@ export default function WeeklySummaryPage() {
   const { date } = useParams();
   const navigate = useNavigate(); 
 
-  const API_URL = import.meta.env.VITE_BACKEND_URL || "http://localhost:3000";
+  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3000";
 
   function computeWeeklyStats(runs) {
     if (!runs || runs.length === 0) {
