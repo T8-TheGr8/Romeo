@@ -36,6 +36,9 @@ export default function Navbar() {
             <NavLink to="/runs">Runs</NavLink>
           </li>
           <li>
+            <NavLink to="/calendar">Calendar</NavLink>
+          </li>
+          <li>
             <NavLink to="/upload">Upload</NavLink>
           </li>
           <li>

@@ -13,6 +13,7 @@ import "./styles/App.css";
 import "./components/layout/ScrollToTop.jsx";
 import ScrollToTop from "./components/layout/ScrollToTop.jsx";
 import { AnimatePresence } from "framer-motion";
+import Calendar from "@/features/calendar/pages/Calendar.jsx";
 
 export default function App() {
   useEffect(() => {
@@ -46,6 +47,7 @@ export default function App() {
                 path="/dashboard/weeklySummary/:date"
                 element={<WeeklySummaryPage />}
               />
+              <Route path="/calendar" elemnt={<Calendar />}/>
             </Routes>
           </AnimatePresence>
         </div>
